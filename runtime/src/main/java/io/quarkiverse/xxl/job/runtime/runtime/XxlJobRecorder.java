@@ -27,6 +27,17 @@ public class XxlJobRecorder {
         this.config = config;
     }
 
+    public void init(List<XxlJobExecutorQuarkusJob> jobs) throws Exception {
+        if (config.enabled) {
+            paddingJobInfo(jobs);
+            XxlJobQuarkusExecutor executor = buildXxlJobExecutor(jobs);
+            executor.start();
+            XxlJobHelper.setConsoleLogged(config.executor.consolelog);
+            Arc.container().instance(XxlJobProducer.class).get().setExecutor(executor);
+        }
+
+    }
+
     private static void paddingJobInfo(List<XxlJobExecutorQuarkusJob> jobs) {
         jobs.forEach(job -> {
             try {
@@ -61,17 +72,6 @@ public class XxlJobRecorder {
         Method method1 = instanceClass.getMethod(methodName);
         XxlJob annotation = method1.getAnnotation(XxlJob.class);
         job.setAnnotation(annotation);
-    }
-
-    public void init(List<XxlJobExecutorQuarkusJob> jobs) throws Exception {
-        if (config.enabled) {
-            paddingJobInfo(jobs);
-            XxlJobQuarkusExecutor executor = buildXxlJobExecutor(jobs);
-            executor.start();
-            XxlJobHelper.setConsoleLogged(config.executor.consolelog);
-            Arc.container().instance(XxlJobProducer.class).get().setExecutor(executor);
-        }
-
     }
 
     private XxlJobQuarkusExecutor buildXxlJobExecutor(List<XxlJobExecutorQuarkusJob> jobs) {
