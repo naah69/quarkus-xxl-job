@@ -101,7 +101,7 @@ public class XxlJobHelper {
     /**
      * append log with pattern
      *
-     * @param appendLogPattern   like "aaa {} bbb {} ccc"
+     * @param appendLogPattern like "aaa {} bbb {} ccc"
      * @param appendLogArguments like "111, true"
      */
     public static boolean log(String appendLogPattern, Object... appendLogArguments) {
@@ -237,8 +237,8 @@ public class XxlJobHelper {
 
     /**
      * @param handleCode 200 : success
-     *                   500 : fail
-     *                   502 : timeout
+     *        500 : fail
+     *        502 : timeout
      * @param handleMsg
      * @return
      */

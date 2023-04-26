@@ -1,19 +1,16 @@
-:summaryTableId: quarkus-xxl-job
 
+:summaryTableId: quarkus-xxl-job
 [.configuration-legend]
 icon:lock[title=Fixed at build time] Configuration property fixed at build time - All other configuration properties are overridable at runtime
-
-[.configuration-reference.searchable,cols="80,.^10,.^10"]
+[.configuration-reference.searchable, cols="80,.^10,.^10"]
 |===
 
-h|
-[[quarkus-xxl-job_configuration]]link:#quarkus-xxl-job_configuration[Configuration property]
+h|[[quarkus-xxl-job_configuration]]link:#quarkus-xxl-job_configuration[Configuration property]
 
 h|Type
 h|Default
 
-a|
-[[quarkus-xxl-job_quarkus.xxl-job.enabled]]`link:#quarkus-xxl-job_quarkus.xxl-job.enabled[quarkus.xxl-job.enabled]`
+a| [[quarkus-xxl-job_quarkus.xxl-job.enabled]]`link:#quarkus-xxl-job_quarkus.xxl-job.enabled[quarkus.xxl-job.enabled]`
 
 [.description]
 --
@@ -25,7 +22,7 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_XXL_JOB_ENABLED+++`
 endif::add-copy-button-to-env-var[]
---|boolean
+--|boolean 
 |`true`
 
 
@@ -39,12 +36,11 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_XXL_JOB_ADMIN_ADDRESSES+++`
 endif::add-copy-button-to-env-var[]
---|string
+--|string 
 |
 
 
-a|
-[[quarkus-xxl-job_quarkus.xxl-job.access-token]]`link:#quarkus-xxl-job_quarkus.xxl-job.access-token[quarkus.xxl-job.access-token]`
+a| [[quarkus-xxl-job_quarkus.xxl-job.access-token]]`link:#quarkus-xxl-job_quarkus.xxl-job.access-token[quarkus.xxl-job.access-token]`
 
 [.description]
 --
@@ -54,7 +50,7 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_XXL_JOB_ACCESS_TOKEN+++`
 endif::add-copy-button-to-env-var[]
---|string
+--|string 
 |
 
 
@@ -70,12 +66,11 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_XXL_JOB_EXECUTOR_APPNAME+++`
 endif::add-copy-button-to-env-var[]
---|string
+--|string 
 |`${quarkus.application.name}`
 
 
-a|
-[[quarkus-xxl-job_quarkus.xxl-job.executor.namespace]]`link:#quarkus-xxl-job_quarkus.xxl-job.executor.namespace[quarkus.xxl-job.executor.namespace]`
+a| [[quarkus-xxl-job_quarkus.xxl-job.executor.namespace]]`link:#quarkus-xxl-job_quarkus.xxl-job.executor.namespace[quarkus.xxl-job.executor.namespace]`
 
 [.description]
 --
@@ -85,7 +80,7 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_XXL_JOB_EXECUTOR_NAMESPACE+++`
 endif::add-copy-button-to-env-var[]
---|string
+--|string 
 |
 
 
@@ -99,12 +94,11 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_XXL_JOB_EXECUTOR_ADDRESS+++`
 endif::add-copy-button-to-env-var[]
---|string
+--|string 
 |
 
 
-a|
-[[quarkus-xxl-job_quarkus.xxl-job.executor.ip]]`link:#quarkus-xxl-job_quarkus.xxl-job.executor.ip[quarkus.xxl-job.executor.ip]`
+a| [[quarkus-xxl-job_quarkus.xxl-job.executor.ip]]`link:#quarkus-xxl-job_quarkus.xxl-job.executor.ip[quarkus.xxl-job.executor.ip]`
 
 [.description]
 --
@@ -114,7 +108,7 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_XXL_JOB_EXECUTOR_IP+++`
 endif::add-copy-button-to-env-var[]
---|string
+--|string 
 |
 
 
@@ -130,12 +124,11 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_XXL_JOB_EXECUTOR_PORT+++`
 endif::add-copy-button-to-env-var[]
---|int
+--|int 
 |`9999`
 
 
-a|
-[[quarkus-xxl-job_quarkus.xxl-job.executor.consolelog]]`link:#quarkus-xxl-job_quarkus.xxl-job.executor.consolelog[quarkus.xxl-job.executor.consolelog]`
+a| [[quarkus-xxl-job_quarkus.xxl-job.executor.consolelog]]`link:#quarkus-xxl-job_quarkus.xxl-job.executor.consolelog[quarkus.xxl-job.executor.consolelog]`
 
 [.description]
 --
@@ -147,7 +140,7 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_XXL_JOB_EXECUTOR_CONSOLELOG+++`
 endif::add-copy-button-to-env-var[]
---|boolean
+--|boolean 
 |`true`
 
 
@@ -161,12 +154,11 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_XXL_JOB_EXECUTOR_LOGPATH+++`
 endif::add-copy-button-to-env-var[]
---|string
+--|string 
 |
 
 
-a|
-[[quarkus-xxl-job_quarkus.xxl-job.executor.logretentiondays]]`link:#quarkus-xxl-job_quarkus.xxl-job.executor.logretentiondays[quarkus.xxl-job.executor.logretentiondays]`
+a| [[quarkus-xxl-job_quarkus.xxl-job.executor.logretentiondays]]`link:#quarkus-xxl-job_quarkus.xxl-job.executor.logretentiondays[quarkus.xxl-job.executor.logretentiondays]`
 
 [.description]
 --
@@ -176,7 +168,7 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_XXL_JOB_EXECUTOR_LOGRETENTIONDAYS+++`
 endif::add-copy-button-to-env-var[]
---|int
+--|int 
 |
 
 |===
