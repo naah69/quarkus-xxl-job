@@ -1,0 +1,5 @@
+name: quarkus-xxl-job
+title: Quarkus Xxl Job
+version: dev
+nav:
+  - modules/ROOT/nav.adoc

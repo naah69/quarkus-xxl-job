@@ -1,0 +1,158 @@
+
+:summaryTableId: quarkus-xxl-job
+[.configuration-legend]
+icon:lock[title=Fixed at build time] Configuration property fixed at build time - All other configuration properties are overridable at runtime
+[.configuration-reference.searchable, cols="80,.^10,.^10"]
+|===
+
+h|[[quarkus-xxl-job_configuration]]link:#quarkus-xxl-job_configuration[Configuration property]
+
+h|Type
+h|Default
+
+a| [[quarkus-xxl-job_quarkus.xxl-job.enabled]]`link:#quarkus-xxl-job_quarkus.xxl-job.enabled[quarkus.xxl-job.enabled]`
+
+[.description]
+--
+开关
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_XXL_JOB_ENABLED+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_XXL_JOB_ENABLED+++`
+endif::add-copy-button-to-env-var[]
+--|boolean 
+|`true`
+
+
+a| [[quarkus-xxl-job_quarkus.xxl-job.admin.addresses]]`link:#quarkus-xxl-job_quarkus.xxl-job.admin.addresses[quarkus.xxl-job.admin.addresses]`
+
+[.description]
+--
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_XXL_JOB_ADMIN_ADDRESSES+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_XXL_JOB_ADMIN_ADDRESSES+++`
+endif::add-copy-button-to-env-var[]
+--|string 
+|
+
+
+a| [[quarkus-xxl-job_quarkus.xxl-job.access-token]]`link:#quarkus-xxl-job_quarkus.xxl-job.access-token[quarkus.xxl-job.access-token]`
+
+[.description]
+--
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_XXL_JOB_ACCESS_TOKEN+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_XXL_JOB_ACCESS_TOKEN+++`
+endif::add-copy-button-to-env-var[]
+--|string 
+|
+
+
+a| [[quarkus-xxl-job_quarkus.xxl-job.executor.appname]]`link:#quarkus-xxl-job_quarkus.xxl-job.executor.appname[quarkus.xxl-job.executor.appname]`
+
+[.description]
+--
+执行器AppName ++[++选填++]++：执行器心跳注册分组依据；为空则关闭自动注册
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_XXL_JOB_EXECUTOR_APPNAME+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_XXL_JOB_EXECUTOR_APPNAME+++`
+endif::add-copy-button-to-env-var[]
+--|string 
+|`${quarkus.application.name}`
+
+
+a| [[quarkus-xxl-job_quarkus.xxl-job.executor.namespace]]`link:#quarkus-xxl-job_quarkus.xxl-job.executor.namespace[quarkus.xxl-job.executor.namespace]`
+
+[.description]
+--
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_XXL_JOB_EXECUTOR_NAMESPACE+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_XXL_JOB_EXECUTOR_NAMESPACE+++`
+endif::add-copy-button-to-env-var[]
+--|string 
+|
+
+
+a| [[quarkus-xxl-job_quarkus.xxl-job.executor.address]]`link:#quarkus-xxl-job_quarkus.xxl-job.executor.address[quarkus.xxl-job.executor.address]`
+
+[.description]
+--
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_XXL_JOB_EXECUTOR_ADDRESS+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_XXL_JOB_EXECUTOR_ADDRESS+++`
+endif::add-copy-button-to-env-var[]
+--|string 
+|
+
+
+a| [[quarkus-xxl-job_quarkus.xxl-job.executor.ip]]`link:#quarkus-xxl-job_quarkus.xxl-job.executor.ip[quarkus.xxl-job.executor.ip]`
+
+[.description]
+--
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_XXL_JOB_EXECUTOR_IP+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_XXL_JOB_EXECUTOR_IP+++`
+endif::add-copy-button-to-env-var[]
+--|string 
+|
+
+
+a| [[quarkus-xxl-job_quarkus.xxl-job.executor.port]]`link:#quarkus-xxl-job_quarkus.xxl-job.executor.port[quarkus.xxl-job.executor.port]`
+
+[.description]
+--
+执行器端口号 ++[++选填++]++：小于等于0则自动获取； 默认端口为9999，单机部署多个执行器时，注意要配置不同执行器端口；
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_XXL_JOB_EXECUTOR_PORT+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_XXL_JOB_EXECUTOR_PORT+++`
+endif::add-copy-button-to-env-var[]
+--|int 
+|`9999`
+
+
+a| [[quarkus-xxl-job_quarkus.xxl-job.executor.logpath]]`link:#quarkus-xxl-job_quarkus.xxl-job.executor.logpath[quarkus.xxl-job.executor.logpath]`
+
+[.description]
+--
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_XXL_JOB_EXECUTOR_LOGPATH+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_XXL_JOB_EXECUTOR_LOGPATH+++`
+endif::add-copy-button-to-env-var[]
+--|string 
+|
+
+
+a| [[quarkus-xxl-job_quarkus.xxl-job.executor.logretentiondays]]`link:#quarkus-xxl-job_quarkus.xxl-job.executor.logretentiondays[quarkus.xxl-job.executor.logretentiondays]`
+
+[.description]
+--
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_XXL_JOB_EXECUTOR_LOGRETENTIONDAYS+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_XXL_JOB_EXECUTOR_LOGRETENTIONDAYS+++`
+endif::add-copy-button-to-env-var[]
+--|int 
+|
+
+|===
