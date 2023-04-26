@@ -34,7 +34,7 @@ class XxlJobProcessor {
 
     @BuildStep
     void xxlJobBuildItem(BuildProducer<XxlJobBuildItem> jobProducer, CombinedIndexBuildItem indexBuildItem,
-            BuildProducer<AdditionalBeanBuildItem> additionalBeanBuildItemBuildProducer) {
+                         BuildProducer<AdditionalBeanBuildItem> additionalBeanBuildItemBuildProducer) {
         for (AnnotationInstance instance : indexBuildItem.getIndex().getAnnotations(XXL_JOB)) {
             AnnotationTarget target = instance.target();
             if (target.kind() == AnnotationTarget.Kind.METHOD) {

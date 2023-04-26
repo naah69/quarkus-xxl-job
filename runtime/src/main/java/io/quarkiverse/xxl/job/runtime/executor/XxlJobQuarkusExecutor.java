@@ -18,6 +18,12 @@ public class XxlJobQuarkusExecutor extends XxlJobExecutor {
 
     private List<XxlJobExecutorQuarkusJob> jobs = new ArrayList<>();
 
+    private static void createLogDir() {
+        XxlJobContext xxlJobContext = XxlJobContext.getXxlJobContext();
+        String jobLogFileName = xxlJobContext.getJobLogFileName();
+        new File(jobLogFileName).getParentFile().mkdirs();
+    }
+
     @Override
     public void start() throws Exception {
         if (jobs == null || jobs.size() == 0) {
@@ -27,12 +33,6 @@ public class XxlJobQuarkusExecutor extends XxlJobExecutor {
 
         //        createLogDir();
         super.start();
-    }
-
-    private static void createLogDir() {
-        XxlJobContext xxlJobContext = XxlJobContext.getXxlJobContext();
-        String jobLogFileName = xxlJobContext.getJobLogFileName();
-        new File(jobLogFileName).getParentFile().mkdirs();
     }
 
     public List<XxlJobExecutorQuarkusJob> getJobs() {

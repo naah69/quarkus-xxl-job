@@ -89,6 +89,12 @@ public class XxlJobConfig {
         public Integer port;
 
         /**
+         * 控制台日志
+         */
+        @ConfigItem(defaultValue = "true")
+        public boolean consolelog;
+
+        /**
          * 执行器运行日志文件存储磁盘路径
          * [选填] ：需要对该路径拥有读写权限；为空则使用默认路径；
          */

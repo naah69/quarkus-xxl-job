@@ -1,11 +1,13 @@
 package io.quarkiverse.xxl.job.runtime.runtime;
 
+import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import io.quarkiverse.xxl.job.runtime.config.XxlJobConfig;
 import io.quarkiverse.xxl.job.runtime.executor.XxlJobExecutorQuarkusJob;
 import io.quarkiverse.xxl.job.runtime.executor.XxlJobQuarkusExecutor;
 import io.quarkus.arc.Arc;
 import io.quarkus.runtime.annotations.Recorder;
+import org.slf4j.Logger;
 
 import java.lang.reflect.Method;
 import java.util.List;
@@ -18,20 +20,11 @@ import java.util.List;
  */
 @Recorder
 public class XxlJobRecorder {
+    private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(XxlJobRecorder.class);
     public final XxlJobConfig config;
 
     public XxlJobRecorder(XxlJobConfig config) {
         this.config = config;
-    }
-
-    public void init(List<XxlJobExecutorQuarkusJob> jobs) throws Exception {
-        if (config.enabled) {
-            paddingJobInfo(jobs);
-            XxlJobQuarkusExecutor executor = buildXxlJobExecutor(jobs);
-            executor.start();
-            Arc.container().instance(XxlJobProducer.class).get().setExecutor(executor);
-        }
-
     }
 
     private static void paddingJobInfo(List<XxlJobExecutorQuarkusJob> jobs) {
@@ -70,17 +63,29 @@ public class XxlJobRecorder {
         job.setAnnotation(annotation);
     }
 
+    public void init(List<XxlJobExecutorQuarkusJob> jobs) throws Exception {
+        if (config.enabled) {
+            paddingJobInfo(jobs);
+            XxlJobQuarkusExecutor executor = buildXxlJobExecutor(jobs);
+            executor.start();
+            XxlJobHelper.setConsoleLogged(config.executor.consolelog);
+            Arc.container().instance(XxlJobProducer.class).get().setExecutor(executor);
+        }
+
+    }
+
     private XxlJobQuarkusExecutor buildXxlJobExecutor(List<XxlJobExecutorQuarkusJob> jobs) {
         XxlJobQuarkusExecutor executor = new XxlJobQuarkusExecutor();
         executor.setJobs(jobs);
         config.admin.addresses.ifPresent(executor::setAdminAddresses);
         config.accessToken.ifPresent(executor::setAccessToken);
         XxlJobConfig.XxlJobExecutorConfig executorConfig = config.executor;
-        String appname = executorConfig.appname;
-        if (executorConfig.namespace.isPresent()) {
-            appname = executorConfig.namespace.get() + "-" + appname;
+        String appName = executorConfig.appname;
+        if (executorConfig.namespace.isPresent() && !executorConfig.namespace.get().isEmpty()) {
+            appName = executorConfig.namespace.get() + "-" + appName;
         }
-        executor.setAppname(appname);
+        executor.setAppname(appName);
+        LOGGER.info("xxl-job AppName:{}", appName);
         executorConfig.address.ifPresent(executor::setAddress);
         executorConfig.ip.ifPresent(executor::setIp);
         executor.setPort(executorConfig.port);

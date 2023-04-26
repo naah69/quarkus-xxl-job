@@ -20,6 +20,12 @@ public class XxlJobHelper {
 
     // ---------------------- base info ----------------------
 
+    // ---------------------- tool for log ----------------------
+    private static boolean consolelog = true;
+    private static Logger logger = LoggerFactory.getLogger("xxl-job logger");
+
+    // ---------------------- for log ----------------------
+
     /**
      * current JobId
      *
@@ -33,6 +39,8 @@ public class XxlJobHelper {
 
         return xxlJobContext.getJobId();
     }
+
+    // ---------------------- for shard ----------------------
 
     /**
      * current JobParam
@@ -48,8 +56,6 @@ public class XxlJobHelper {
         return xxlJobContext.getJobParam();
     }
 
-    // ---------------------- for log ----------------------
-
     /**
      * current JobLogFileName
      *
@@ -63,8 +69,6 @@ public class XxlJobHelper {
 
         return xxlJobContext.getJobLogFileName();
     }
-
-    // ---------------------- for shard ----------------------
 
     /**
      * current ShardIndex
@@ -94,14 +98,10 @@ public class XxlJobHelper {
         return xxlJobContext.getShardTotal();
     }
 
-    // ---------------------- tool for log ----------------------
-
-    private static Logger logger = LoggerFactory.getLogger("xxl-job logger");
-
     /**
      * append log with pattern
      *
-     * @param appendLogPattern like "aaa {} bbb {} ccc"
+     * @param appendLogPattern   like "aaa {} bbb {} ccc"
      * @param appendLogArguments like "111, true"
      */
     public static boolean log(String appendLogPattern, Object... appendLogArguments) {
@@ -165,7 +165,9 @@ public class XxlJobHelper {
         String logFileName = xxlJobContext.getJobLogFileName();
 
         if (logFileName != null && logFileName.trim().length() > 0) {
-            logger.info(formatAppendLog);
+            if (consolelog) {
+                LoggerFactory.getLogger(callInfo.getClassName()).info(appendLog);
+            }
             XxlJobFileAppender.appendLog(logFileName, formatAppendLog);
             return true;
         } else {
@@ -234,12 +236,9 @@ public class XxlJobHelper {
     }
 
     /**
-     * @param handleCode
-     *
-     *        200 : success
-     *        500 : fail
-     *        502 : timeout
-     *
+     * @param handleCode 200 : success
+     *                   500 : fail
+     *                   502 : timeout
      * @param handleMsg
      * @return
      */
@@ -256,4 +255,7 @@ public class XxlJobHelper {
         return true;
     }
 
+    public static void setConsoleLogged(boolean consolelog) {
+        XxlJobHelper.consolelog = consolelog;
+    }
 }
