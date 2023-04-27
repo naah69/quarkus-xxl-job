@@ -69,7 +69,7 @@ public class XxlJobRecorder {
 
     private static void paddingJobAnnotation(XxlJobExecutorQuarkusJob job, String methodName, Class instanceClass)
             throws NoSuchMethodException {
-        Method method1 = instanceClass.getMethod(methodName);
+        Method method1 = instanceClass.getDeclaredMethod(methodName);
         XxlJob annotation = method1.getAnnotation(XxlJob.class);
         job.setAnnotation(annotation);
     }
